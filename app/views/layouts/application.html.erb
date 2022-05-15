@@ -11,10 +11,11 @@
   </head>
 
   <body>
-  <div class="navbar p-3 border-bottom">
-    <%= link_to 'All restaurants', restaurants_path %>
-    <%= link_to 'Add a new restaurant', new_restaurant_path %>
-  </div>
+  <%# <div class="navbar p-3 border-bottom">
+    
+    
+  <%# </div> %>
+  <%= render 'shared/navbar' %>
   <div class="container">
     <%= yield %>
   </div>

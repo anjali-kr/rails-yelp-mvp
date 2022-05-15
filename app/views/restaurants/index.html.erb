@@ -1,4 +1,4 @@
-<h1> Choose a restaurant</h1>
+<!-- <h1> Choose a restaurant</h1>
 
 <ul>
 <% @restaurants.each do |restaurant| %>
@@ -6,4 +6,16 @@
 <% end %>
 </ul>
 <hr>
-<!-- <%= link_to 'Add a new restaurant', new_restaurant_path %>-->
+<%= link_to 'Add a new restaurant', new_restaurant_path %>-->
+<h1 class="text-center mt-3">The best restaurants in town</h1>
+<div class="card p-5">
+<ol class="">
+	<% @restaurants.each do |restaurant| %>
+
+		<li>
+    <%= link_to restaurant.name, restaurant_path(restaurant) %>, <span>located at </span> <%= restaurant.address %> </strong> 📞 </strong><%= restaurant.phone_number %>
+    </li> <hr>
+
+  <% end %>
+</ol>
+</div>

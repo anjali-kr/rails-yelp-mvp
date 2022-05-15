@@ -1,3 +1,4 @@
+<!--
 <h1><%= @restaurant.name %></h1>
 <h5><%=  @restaurant.category.capitalize %></h5>
 <p><%=  @restaurant.address %></p>
@@ -5,13 +6,37 @@
 
 <h3>Reviews</h3>
 <% @restaurant.reviews.each do |review| %>
+<div class="card p-2">
   <p>Rating: <%= review.rating %></p>
   <p><%= review.content %></p>
-  <hr>
+</div>
 <% end %>
 
 <br>
 <h5>Add review </h5>
 <%= render 'restaurants/form' %>
 
-<!-- <%= link_to 'All restaurants', restaurants_path %> -->
+<%= link_to 'All restaurants', restaurants_path %> -->
+
+<ul class="list-unstyled m-4">
+	<h1><%= @restaurant.name %></h1>
+	<li class="fs-4"><%= @restaurant.category.capitalize %></li>
+	<li><%= @restaurant.address %></li>
+	<li>📞 <%= @restaurant.phone_number %></li>
+	<br>
+
+	<h4>Restaurant Reviews</h4> <hr>
+
+  <ul class="list-group m-4" >
+  <% if @restaurant.reviews.count > 0 %>
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item justify-content-between"><%= review.content %> ***********  <%= review.rating %> star rating ********** </li>
+    <% end %>
+  <% else %>
+      <span><%= "No reviews!" %></span>
+  <% end %>
+  </ul>
+  <br>
+  <h5>Leave a review for <%= @restaurant.name %></h5><hr>
+  <%= render 'restaurants/form' %>
+</ul>
